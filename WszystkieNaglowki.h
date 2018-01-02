@@ -26,6 +26,13 @@ public:
 // ------ PRODUCT
 
 // ------ RAMP
+class Ramp{
+private: 
+	MathPreferences preferences;
+	double frequency;
+public: 
+	friend void SendTo();
+}
 
 // ------ WORKER
 
