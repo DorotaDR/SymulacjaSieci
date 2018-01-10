@@ -85,23 +85,38 @@ public:
 // ------ RAPORT
 class Raport{
 public:
-	virtual void create() = 0;
+	virtual void create() = 0;		//tworzy i wyświetla raport
 }
 // ------ RAPORTOFNET
 class RaportOfNet: public Raport{
 private:
-	
+	int numberOfRamps;		
+	int numberOfWorkers;
+	int numberOfStorehauses;
 public:
-	void create();
-	NumberOfRamps(Factory &f);
-	NumberOfWorkers(Factory &f);
-	NumberOfStorehauses(Factory &f);
+	void create();				//tworzy i wyświetla raport
+	getNumberOfRamps(Factory &f);		//sprawdza ilość ramp
+	getNumberOfWorkers(Factory &f);		//sprawdza ilość robotników
+	getNumberOfStorehauses(Factory &f);	//sprawdza ilość magazynów
 }
 // ------ RAPORTOFSYMULATION
 class RaportOfNet: public Raport{
 public:
-	virtual void create() = 0;
+	virtual void create() = 0;		//tworzy i wyświetla raport
+	virtual bool isItTime(RundNum) = 0; 	//sprawdza czy w tej turze utworzyć raport
 }
 // ------ EVERYXROUNDS
-
+class EveryXRounds: public RaportOfNet{
+private:
+	int interval;
+	
+public:
+	void create();				//tworzy i wyświetla raport
+	bool isItTime(RundNum); 		//sprawdza czy w tej turze utworzyć raport
+}
 // ------ GIVENROUNDS
+class GivenRounds: public RaportOfNet{
+public:
+	void create();				//tworzy i wyświetla raport
+	vbool isItTime(RundNum); 		//sprawdza czy w tej turze utworzyć raport
+}
