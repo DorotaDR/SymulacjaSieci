@@ -1,8 +1,3 @@
-/// INCLUDE:
-
-#include <vector>
-#include <map>
-
 // ------ FACTORY
 
 class Factory{
@@ -24,6 +19,8 @@ public:
 	void deleteRamps(std::vector<Ramp> rampsToDelete);
 	void deleteWorkers(std::vector<Worker> workersToDelete);
 	void deleteStorehouses(std::vector<Storehause> storehausesToDelete);
+	
+	friend class RaportOfNet;
 }
 
 // ------ PRODUCT
@@ -41,17 +38,17 @@ public:
 // ------ MATHPREFERENCES
 class MathPreferences{
 private:
-	std::map<int, float> preferences;
+	std::map<int, int> preferences;
 	
 public: 
 	MathPreferences();
-	void add(int id, float prob);
-	void delete(int id);
+	void add(int id, int prob);
+	void delete(int id);0
 }
 
 
 // ------ PRIORITY
-class Priority{
+class Priority{\
 public:
 	virtual void push(int PackageId)=0; 		// umieszczenie nowego elementu na szczycie stosu;
     	virtual void pop() = 0; 			// zdjęcie istniejącego elementu ze szczytu stosu;
@@ -86,11 +83,25 @@ public:
 
 
 // ------ RAPORT
-
+class Raport{
+public:
+	virtual void create() = 0;
+}
 // ------ RAPORTOFNET
-
+class RaportOfNet: public Raport{
+private:
+	
+public:
+	void create();
+	NumberOfRamps(Factory &f);
+	NumberOfWorkers(Factory &f);
+	NumberOfStorehauses(Factory &f);
+}
 // ------ RAPORTOFSYMULATION
-
+class RaportOfNet: public Raport{
+public:
+	virtual void create() = 0;
+}
 // ------ EVERYXROUNDS
 
 // ------ GIVENROUNDS
