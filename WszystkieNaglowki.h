@@ -10,9 +10,9 @@ private:
 	std::vector<Storehause> storehauses;
 
 public:
-	void addRamp()
-	void addWorker()
-	void addStorehouse()
+	void addRamp();
+	void addWorker();
+	void addStorehouse();
 
 	std::vector<Ramp> getRamps();
 	std::vector<Worker> getWorkers();
