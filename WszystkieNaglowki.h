@@ -38,17 +38,17 @@ public:
 // ------ MATHPREFERENCES
 class MathPreferences{
 private:
-	std::map<int, int> preferences;
+	std::map<int, float> preferences;
 	
 public: 
 	MathPreferences();
-	void add(int id, int prob);
-	void delete(int id);0
+	void add(int id, float prob);
+	void delete(int id);
 }
 
 
 // ------ PRIORITY
-class Priority{\
+class Priority{
 public:
 	virtual void push(int PackageId)=0; 		// umieszczenie nowego elementu na szczycie stosu;
     	virtual void pop() = 0; 			// zdjęcie istniejącego elementu ze szczytu stosu;
