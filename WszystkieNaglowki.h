@@ -37,14 +37,17 @@ public:
 
 // ------ MATHPREFERENCES
 class MathPreferences{
+
 private:
 	std::map<int, int> preferences;
-	
-public: 
+	int counter;
+public:
 	MathPreferences();
-	void add(int id, int prob);
-	void delete(int id);0
-}
+	MathPreferences(Receiver*);
+	void addPref(Receiver* idReceiver);
+	void addPref(Receiver* idReceiver, int prob);
+	void deletePref(Receiver* idToDelete);
+};
 
 
 // ------ PRIORITY
