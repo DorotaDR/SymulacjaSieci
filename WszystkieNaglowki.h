@@ -1,27 +1,32 @@
 // ------ FACTORY
 
-class Factory{
+class Factory {
 
 private:
-	std::vector<Ramp> ramps;
-	std::vector<Worker> workers;
-	std::vector<Storehause> storehauses;
+	std::list<Ramp*> ramps;
+	std::list<Worker*> workers;
+	std::list<Storehouse*> storehouses;
 
 public:
-	void addRamp();
-	void addWorker();
-	void addStorehouse();
+// ------ ADD FUNCTIONS
+	Ramp* addRamp();
+	Worker* addWorker();
+	Storehouse* addStorehouse();
 
+// ------ GET FUNCTIONS
 	std::vector<Ramp> getRamps();
 	std::vector<Worker> getWorkers();
-	std::vector<Storehause> getStorehouses();
+	std::vector<Storehouse> getStorehouses();
 
+// ------ DELETE FUNCTIONS
 	void deleteRamps(std::vector<Ramp> rampsToDelete);
 	void deleteWorkers(std::vector<Worker> workersToDelete);
-	void deleteStorehouses(std::vector<Storehause> storehausesToDelete);
-	
+	void deleteStorehouses(std::vector<Storehouse> storehousesToDelete);
+
+// ------ FRIEND FUNCTIONS:
 	friend class RaportOfNet;
-}
+};
+
 
 // ------ PRODUCT
 
