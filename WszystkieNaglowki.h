@@ -105,8 +105,8 @@ public:
 // ------ RAPORTOFSYMULATION
 class RaportOfNet: public Raport{
 public:
-	virtual void create() = 0;		//tworzy i wyświetla raport
-	virtual bool isItTime(RundNum) = 0; 	//sprawdza czy w tej turze utworzyć raport
+	virtual void create() = 0;			//tworzy i wyświetla raport
+	virtual bool isItTime(int RundNum) = 0; 	//sprawdza czy w tej turze utworzyć raport
 }
 // ------ EVERYXROUNDS
 class EveryXRounds: public RaportOfNet{
@@ -115,11 +115,13 @@ private:
 	
 public:
 	void create();				//tworzy i wyświetla raport
-	bool isItTime(RundNum); 		//sprawdza czy w tej turze utworzyć raport
+	bool isItTime(int RundNum); 		//sprawdza czy w tej turze utworzyć raport
 }
 // ------ GIVENROUNDS
 class GivenRounds: public RaportOfNet{
+private:
+	int givenRounds;
 public:
 	void create();				//tworzy i wyświetla raport
-	vbool isItTime(RundNum); 		//sprawdza czy w tej turze utworzyć raport
+	bool isItTime(int RundNum); 		//sprawdza czy w tej turze utworzyć raport
 }
